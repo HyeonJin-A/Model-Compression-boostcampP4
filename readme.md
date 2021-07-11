@@ -1,4 +1,4 @@
-1. [대회 개요]
+1. [대회 개요](https://github.com/HyeonJin-A/boostcamp-P4-Model-Compression/blob/main/readme.md#1-%EB%8C%80%ED%9A%8C-%EA%B0%9C%EC%9A%94)
 2. [대회 결과]
 3. [대회 진행 23일]
 4. [실험 내용]
