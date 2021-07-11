@@ -2,7 +2,7 @@
 2. [대회 결과]
 3. [대회 진행 23일]
 4. [실험 내용]
-5. [Test Demo]
+5. [Test Demo](#5-test-demo)
 
 # 1. 대회 개요
 Image Classification. 이미지를 9개의 재활용 품목 카테고리로 분류하는 문제</br>
