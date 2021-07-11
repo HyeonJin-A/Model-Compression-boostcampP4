@@ -1,22 +1,28 @@
-# 대회 개요
+1. [대회 개요]
+2. [대회 결과]
+3. [대회 진행 23일]
+4. [실험 내용]
+5. [Test Demo]
+
+# 1. 대회 개요
 Image Classification. 이미지를 9개의 재활용 품목 카테고리로 분류하는 문제</br>
 Model 경량화. 어느 정도의 성능을 유지하며 크기가 작은 모델을 만드는 문제
-![image](https://user-images.githubusercontent.com/75927764/125183136-050d8d00-e24f-11eb-921e-f5e0666257a5.png)
+![image](https://user-images.githubusercontent.com/75927764/125185440-ce8c3e00-e25f-11eb-9b30-8337fc33f6da.png)
 
 ## Score
-![image](https://user-images.githubusercontent.com/75927764/125183272-29b63480-e250-11eb-8e35-b70c6cb48b15.png)
+![image](https://user-images.githubusercontent.com/75927764/125185456-dba92d00-e25f-11eb-91aa-fa6a35774179.png)
 - MACs(Multiply-accumulate operations)
   - 합,곱연산의횟수
   - MACs -> 약 0.5FLOPs
 </br>
 
-# 대회 결과
+# 2. 대회 결과
 ![image](https://user-images.githubusercontent.com/75927764/125183337-c7a9ff00-e250-11eb-8e98-a6636d7f159a.png)
 Public **2nd**, Private **2nd**
 </br>
 </br>
 
-# 대회 진행 23일
+# 3. 대회 진행 23일
 |Day|LB Score, F1, MACs|실험 내용|실험 내용|실험 내용|
 |--|--|--|--|--|
 |01||baseline 코드 작성|MACs 공부|EDA|
@@ -43,24 +49,46 @@ Public **2nd**, Private **2nd**
 |22|"|회고 및 팀원들과 피드백|발표 준비||
 |23|"|발표 준비|||
 
+</br>
 
+# 4. 실험 내용
+## Pretrained Model Search
+![image](https://user-images.githubusercontent.com/75927764/125185208-6b4ddc00-e25e-11eb-97b1-c74718f0d6dd.png)
+SOTA, 논문, 라이브러리 등을 참고하여 가벼워 보이는 모델들을 여러가지 구글링 해봤는데, pretrained weight가 존재하는 모델 중에서는 ShuffleNet이 MAC대비 F1 스코어가 가장 좋았습니다.
+</br>선택한 ShuffleNet은 스템을 제외하면 stage 3개로, 각 4-8-4개의 유닛 구조로 되어있습니다.
+</br>
 
+## Feature Distribution
+Stage1</br>
+![image](https://user-images.githubusercontent.com/75927764/125185343-59206d80-e25f-11eb-998e-4a3bdfd1bac4.png)
+</br>Stage2</br>
+![image](https://user-images.githubusercontent.com/75927764/125185358-66d5f300-e25f-11eb-887c-63238aee617b.png)
+</br>Stage3</br>
+![image](https://user-images.githubusercontent.com/75927764/125185372-71908800-e25f-11eb-961e-517083bf967f.png)
+</br>ShuffleNet에 경량화 기법을 적용하기 위해 Weight 분포를 확인해본 결과입니다.</br>
+std(표준편차)값이 클수록 0이 아닌 weight 값이 많이 분포되어 있으므로, std가 낮은 레이어부터 제거하였습니다.
+</br>
 
+## Model Compression
+![image](https://user-images.githubusercontent.com/75927764/125185421-b1f00600-e25f-11eb-8967-506b272fae1f.png)
+- MACs를 직접적으로 감소시키기 위해 Input size를 80x80으로 매우 낮게 설정 하였습니다.
+- Input size 축소로 인해 추출할 feature 수가 줄어 들었다고 판단하여 Network 사이즈를 축소 하였습니다.
+- 대회 특성을 고려하면 unstructured pruning은 불가능하고, structured pruning (layer, channel) 및 weight decomposition를 시도 하였습니다.
+- layer pruning : [4-8-4] -> [2-5-2]
+- channel pruning : stage3 [120, 240] -> [120, 210]
+- decomposition : stage3 conv group3 -> group6
+</br>
 
+## Knowledge Distillation 실험
+![image](https://user-images.githubusercontent.com/75927764/125185602-bff25680-e260-11eb-8cad-ea4851f61d8f.png)
+</br>실험 결과 다음과 같은 결론을 내렸습니다.
+- 비슷한 분포를 가지는 모델을 teacher로 사용하는 것이 매우 효과적
+- 분포가 조금 달라져도, teacher를 Ensemble하는 방법은 효과적
 
+</br>
+</br>
 
-
-
-
-
-
-
-
-
-
-
-
-# Test Demo
+# 5. Test Demo
 ||MACs|F1|Competition Score|
 |------|---|---|----|
 |Before|1688940.0|0.6206|0.4005|
