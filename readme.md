@@ -1,8 +1,12 @@
-1. [대회 개요](https://github.com/HyeonJin-A/boostcamp-P4-Model-Compression/blob/main/readme.md#1-%EB%8C%80%ED%9A%8C-%EA%B0%9C%EC%9A%94)
-2. [대회 결과]
-3. [대회 진행 23일]
-4. [실험 내용]
+# Index
+1. [대회 개요](#1-%EB%8C%80%ED%9A%8C-%EA%B0%9C%EC%9A%94)
+2. [대회 결과](#2-%EB%8C%80%ED%9A%8C-%EA%B2%B0%EA%B3%BC)
+3. [대회 진행 23일](#3-%EB%8C%80%ED%9A%8C-%EC%A7%84%ED%96%89-23%EC%9D%BC)
+4. [실험 내용](#4-%EC%8B%A4%ED%97%98-%EB%82%B4%EC%9A%A9)
 5. [Test Demo](#5-test-demo)
+
+---
+</br>
 
 # 1. 대회 개요
 Image Classification. 이미지를 9개의 재활용 품목 카테고리로 분류하는 문제</br>
@@ -15,6 +19,7 @@ Model 경량화. 어느 정도의 성능을 유지하며 크기가 작은 모델
   - 합,곱연산의횟수
   - MACs -> 약 0.5FLOPs
 </br>
+
 
 # 2. 대회 결과
 ![image](https://user-images.githubusercontent.com/75927764/125183337-c7a9ff00-e250-11eb-8e98-a6636d7f159a.png)
@@ -50,6 +55,7 @@ Public **2nd**, Private **2nd**
 |23|"|발표 준비|||
 
 </br>
+
 
 # 4. 실험 내용
 ## Pretrained Model Search
