@@ -13,7 +13,7 @@ Image Classification. 이미지를 9개의 재활용 품목 카테고리로 분�
 Model 경량화. 어느 정도의 성능을 유지하며 크기가 작은 모델을 만드는 문제
 ![image](https://user-images.githubusercontent.com/75927764/125185440-ce8c3e00-e25f-11eb-9b30-8337fc33f6da.png)
 
-## Score
+## Metric (평가 지표)
 ![image](https://user-images.githubusercontent.com/75927764/125185456-dba92d00-e25f-11eb-91aa-fa6a35774179.png)
 - MACs(Multiply-accumulate operations)
   - 합,곱연산의횟수
