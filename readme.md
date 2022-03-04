@@ -82,7 +82,10 @@ std(표준편차)값이 클수록 0이 아닌 weight 값이 많이 분포되어 
 ![image](https://user-images.githubusercontent.com/75927764/125185421-b1f00600-e25f-11eb-8967-506b272fae1f.png)
 - MACs를 직접적으로 감소시키기 위해 Input size를 80x80으로 매우 낮게 설정 하였습니다.
 - Input size 축소로 인해 추출할 feature 수가 줄어 들었다고 판단하여 Network 사이즈를 축소 하였습니다.
-- 대회 특성을 고려하면 unstructured pruning은 불가능하고, structured pruning (layer, channel) 및 weight decomposition를 시도 하였습니다.
+- Metric 함수 특성을 고려하여 모델을 직접 잘라내는 structured pruning (layer, channel) 및 weight decomposition를 시도 하였습니다.</br>
+레이어 조정 후 Knowledge Distillation을 통해 성능 복원에 성공하면 유지, 실패할 경우 이전 단계로 돌아가 다른 레이어를 조정하였습니다.</br>
+![image](https://user-images.githubusercontent.com/75927764/156787214-369c6858-b8fb-4497-a4c0-35a6d0763c24.png)
+
 - layer pruning : [4-8-4] -> [2-5-2]
 - channel pruning : stage3 [120, 240] -> [120, 210]
 - decomposition : stage3 conv group3 -> group6
