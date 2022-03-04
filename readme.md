@@ -1,6 +1,6 @@
 # Index
 1. [대회 개요](#1-%EB%8C%80%ED%9A%8C-%EA%B0%9C%EC%9A%94)
-2. [대회 결과](#2-%EB%8C%80%ED%9A%8C-%EA%B2%B0%EA%B3%BC)
+2. [대회 전략 및 결과](#2-대회-전략-및-결과)
 3. [대회 진행 23일](#3-%EB%8C%80%ED%9A%8C-%EC%A7%84%ED%96%89-23%EC%9D%BC)
 4. [실험 내용](#4-%EC%8B%A4%ED%97%98-%EB%82%B4%EC%9A%A9)
 5. [Test Demo](#5-test-demo)
@@ -21,9 +21,12 @@ Model 경량화. 어느 정도의 성능을 유지하며 크기가 작은 모델
 </br>
 
 
-# 2. 대회 결과
+# 2. 대회 전략 및 결과
 ![image](https://user-images.githubusercontent.com/75927764/125183337-c7a9ff00-e250-11eb-8e98-a6636d7f159a.png)
-Public **2nd**, Private **2nd**
+Public **2nd**, Private **2nd**</br></br>
+Top-down, Bottom-up, Additional 3가지 방향으로 분업 전략을 세웠습니다.</br>
+맡은 분야가 같은 팀원 간에는 협업하여 실험을 진행했습니다.</br>
+대회 초반부터 이러한 전략을 효과적으로 설정하였기에 다른 팀들보다 다양한 실험을 진행할 수 있었고, 10팀 중 2등의 성과를 내었습니다.</br> 
 </br>
 </br>
 
